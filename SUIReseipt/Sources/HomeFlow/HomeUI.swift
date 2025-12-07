@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct HomeUI: View {
+    @EnvironmentObject private var themeManager: ThemeManager
+
     var body: some View {
         NavigationView {
             ZStack {
-                Color.green.opacity(0.2).ignoresSafeArea()
-                
-                Text("HomeUI")
+                Color.background.primary.ignoresSafeArea()
+                Button("Just change current theme") {
+                    themeManager.currentThemeType = [.light, .dark].randomElement() ?? .dark
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -56,6 +59,6 @@ private extension HomeUI {
 
 struct HomeUI_Previews: PreviewProvider {
     static var previews: some View {
-        HomeUI()
+        HomeUI().environmentObject(ThemeManager.shared)
     }
 }

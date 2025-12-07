@@ -3,11 +3,13 @@ import SwiftUI
 @main
 struct SUIReseiptApp: App {
     
-    @UIApplicationDelegateAdaptor private var delegate: AppDelegate
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+
+    @ObservedObject private var themeManager = ThemeManager.shared
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabbarUI().environmentObject(themeManager)
         }
     }
 }
