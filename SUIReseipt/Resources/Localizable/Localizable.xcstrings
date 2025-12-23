@@ -1,6 +1,18 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "1" : {
+
+    },
+    "3" : {
+
+    },
+    "4" : {
+
+    },
+    "Swipe to search by ingredients" : {
+
+    },
     "tab.item.favorites" : {
       "extractionState" : "manual",
       "localizations" : {
