@@ -17,7 +17,7 @@ let project = Project(
                     ],
                 ]
             ),
-            sources: ["SUIReseipt/Sources/**"],
+            sources: ["SUIReseipt/Sources/**", "SUIReseipt/Theme/**"],
             resources: ["SUIReseipt/Resources/**"],
             dependencies: []
         ),
