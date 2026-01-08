@@ -4,10 +4,10 @@ let project = Project(
     name: "SUIReseipt",
     targets: [
         .target(
-            name: "SUIReseipt",
+            name: "ReseiptSource",
             destinations: .iOS,
             product: .app,
-            bundleId: "io.tuist.SUIReseipt",
+            bundleId: "io.tuist.ReseiptSource",
             deploymentTargets: .iOS("15.0"),
             infoPlist: .extendingDefault(
                 with: [
@@ -17,20 +17,31 @@ let project = Project(
                     ],
                 ]
             ),
-            sources: ["SUIReseipt/Sources/**", "SUIReseipt/Theme/**"],
-            resources: ["SUIReseipt/Resources/**"],
+            sources: ["Targets/ReseiptSource/Sources/**"],
+            resources: ["Targets/ReseiptSource/Resources/**"],
+            dependencies: [.target(name: "DSKit")]
+        ),
+        .target(
+            name: "DSKit",
+            destinations: .iOS,
+            product: .framework,
+            bundleId: "io.tuist.DSKit",
+            deploymentTargets: .iOS("15.0"),
+            infoPlist: .default,
+            sources: ["Targets/UIKit/**"],
+            resources: [],
             dependencies: []
         ),
         .target(
-            name: "SUIReseiptTests",
+            name: "ReseiptSourceTests",
             destinations: .iOS,
             product: .unitTests,
-            bundleId: "io.tuist.SUIReseiptTests",
+            bundleId: "io.tuist.ReseiptSourceTests",
             deploymentTargets: .iOS("15.0"),
             infoPlist: .default,
-            sources: ["SUIReseipt/Tests/**"],
+            sources: ["Targets/ReseiptSource/Tests/**"],
             resources: [],
-            dependencies: [.target(name: "SUIReseipt")]
+            dependencies: [.target(name: "ReseiptSource")]
         ),
     ]
 )
