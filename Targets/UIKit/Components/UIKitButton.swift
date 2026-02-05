@@ -9,13 +9,13 @@ import SwiftUI
 
 // MARK: - UIKitButtonSize
 
-protocol UIKitButtonSize {
+public protocol UIKitButtonSize {
     var height: CGFloat { get }
 }
 
 // MARK: - UIkitButtonAppearance
 
-protocol  UIkitButtonAppearance {
+public protocol  UIkitButtonAppearance {
     var foregroundColor: Color { get }
     var backgroundColor: Color { get }
     var font: Font { get }
@@ -33,33 +33,35 @@ protocol UIKitButtonStyle {
 
 // MARK: - UIKitButton
 
-struct UIKitButton: View {
+public struct UIKitButton: View {
     private let title: String
-    private let style: UIKitButtonStyle
+//    private let style: UIKitButtonStyle
     private let appearance: UIkitButtonAppearance
     private let size: UIKitButtonSize
     private let action: () -> Void
     
     // MARK: Init
-    init(
+    public init(
         title: String,
-        style: UIKitButtonStyle,
+//        style: UIKitButtonStyle,
         appearance: UIkitButtonAppearance,
         size: UIKitButtonSize,
         action: @escaping () -> Void
     ) {
         self.title = title
-        self.style = style
+//        self.style = style
         self.appearance = appearance
         self.size = size
         self.action = action
     }
     
     // MARK: Button View
-    var body: some View {
+    public var body: some View {
         Button(action: action, label: { text } )
+            .frame(height: size.height)
             .foregroundColor(appearance.foregroundColor)
             .background(appearance.backgroundColor)
+            .cornerRadius(6)
     }
 }
 

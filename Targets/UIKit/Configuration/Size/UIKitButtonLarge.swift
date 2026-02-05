@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct UIKitButtonLarge: UIKitButtonSize {
-    let height: CGFloat = 46
+public struct UIKitButtonLarge: UIKitButtonSize {
+    public let height: CGFloat = 46
+    
+    public init() { }
 }
 
 extension UIKitButtonSize where Self == UIKitButtonLarge {
-    static var large: UIKitButtonSize { UIKitButtonLarge() }
+    public static var large: UIKitButtonSize { UIKitButtonLarge() }
 }
 
 //enum UIKitButtonStandartSize: UIKitButtonSize {

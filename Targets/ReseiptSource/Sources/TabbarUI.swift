@@ -28,3 +28,23 @@ struct ContentView_Previews: PreviewProvider {
         TabbarUI().environmentObject(ThemeManager.shared)
     }
 }
+
+#Preview {
+    UIKitButton(
+        title: "Конфигурация №1",
+        appearance: .primary,
+        size: .small
+    ) {
+        print("Hello config 1")
+    }
+}
+
+#Preview {
+    UIKitButton(
+        title: "Конфигурация №2",
+        appearance: .secondary,
+        size: .large
+    ) {
+        print("Hello config 2")
+    }
+}
